@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>M.C.C. | Dávid BOZSAKY</title>
+
+	<meta charset="utf-8">
+
+	<style type="text/css">#offset-top{margin-top: 20px;}</style>
+
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Latest compiled jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+
+	<script src="https://cdn.jsdelivr.net/jquery.color-animation/1/mainfile"></script>
+
+	<script type="text/javascript" src="script.plugin.js"></script>
+	
+</head>
+<body>
+
+	<div class="row">
+	 <div class="col-sm-8 col-sm-offset-2 text-center">
+
+	<h1 id="osmac">jquery is awesome as balls</h1>
+	</div>
+	</div>
+
+	<div class="row">
+	 <div class="col-sm-4 col-sm-offset-4 text-center" style="height: 500px; background-color: #99ccff; overflow: hidden;">
+
+		<div class="col-xs-1" id="me" style="background-color: blue; height: 30px; left: 100px; top: 200px; -webkit-transition-timing-function: linear; /* Safari and Chrome */
+    transition-timing-function: linear;">
+    	
+
+    	&gt
+
+    </div>
+		<div  id="up" style="position: relative; background-color: green; width: 30px; height: 30px; top: 300px; left: 200px;"></div>
+		<div  id="down" style="position: relative; background-color: orange; width: 30px; height: 30px; top: 350px; left: 200px;"></div>
+
+		<div  id="faster" style="position: relative; background-color: red; width: 30px; height: 30px; top: 280px; left: 150px;"></div>
+
+		<div  id="slower" style="position: relative; background-color: blue; width: 30px; height: 30px; top: 280px; left: 250px;"></div>
+
+		<div id="oblak" style="width: 200px; height: 100px; top: 40px; left: 20px; background-color: white; opacity: 0.7;">ja som oblak</div>
+
+		<script type="text/javascript">
+			
+		$(document).ready(function() {
+
+			
+
+			var odtial = 10;
+
+		//	while	( $('html') )
+
+
+			$('#faster').click(function() {
+
+				while ( odtial < 11) {
+
+					console.log("ja za to nemozem");
+
+						function getRotationDegrees(obj) {
+ 				  		var matrix = obj.css("-webkit-transform") ||
+ 					   		obj.css("-moz-transform")    ||
+ 					   		obj.css("-ms-transform")     ||
+  		     				obj.css("-o-transform")      ||
+ 					   		obj.css("transform");
+  					
+  						if(matrix !== 'none') {
+        			
+        				var values = matrix.split('(')[1].split(')')[0].split(','),
+        				         a = values[0],
+       					         b = values[1],
+        				     angle = Math.round(Math.atan2(b, a) * (180/Math.PI));
+    					
+    					} else { var angle = 0; }
+    					
+    					return (angle < 0) ? angle + 360 : angle;
+						}
+
+						if ( odtial < 10 ) {
+
+						odtial +=1;
+
+						console.log(odtial);
+
+						}
+						
+
+						var angle = getRotationDegrees($('#me')),
+						  radians = (angle) * Math.PI / 180,
+						  	zlava = parseFloat($('#me').css('left')),
+							zhora = parseFloat($('#me').css('top')),	
+							xAxis = (Math.cos(radians) * odtial) + zlava,
+							yAxis = (Math.sin(radians) * odtial) + zhora ;
+
+					$('#me').css({ transitionDuration: '.5s' });
+
+					$('#me').css({ top: + yAxis + 'px' });
+					$('#me').css({ left: + xAxis + 'px' });
+					}
+					
+
+
+			});
+
+				var otoc = 0;
+				
+
+			$('#up').click(function() {
+
+				otoc -= 5;
+
+
+					
+					$('#me').css({ transform: 'rotate(' + otoc + 'deg)' })
+
+		
+
+			});
+
+			$('#down').click(function() {
+
+				otoc += 5;
+		
+					$('#me').css({ transform: 'rotate(' + otoc + 'deg)' })		
+
+			});
+
+			$('#slower').click(function() {
+
+				if ( odtial > 0 ) {
+
+					odtial -=1;
+
+					console.log(odtial);
+				}
+
+			});
+
+
+		});
+
+		</script>
+
+	</div>
+	</div>
+
+
+<!--		<div class="row">
+				<div class="col-sm-10 col-sm-offset-1" id="siemda">
+					
+					<h1>nadpis a la ucime sa dalej no co aj taky je zivot</h1>
+
+					<ul id="zoz">
+						<li>Peťka</li>
+						<li>david</li>
+						<li>nietkot</li>
+						<li>a este nieco</li>
+					</ul>
+
+
+				</div>
+			</div>
+
+	<div class="container">
+		<div class="row">
+
+		<img class="img-responsive" id="smile" src="http://obrazky.zabinudu.sk/obrazky/3614" alt="carrot eatin rabbits">
+		
+		</div>
+		<a href="#" id="skry">skry</a>
+		<a href="#" id="ukaz">ukaz</a>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<dl>
+				<dt>Robert Kiyosaki </dt>
+				<dd>“Najväčším bohatstvom je vzdelanie”</dd>
+
+				<dt>Dan Millman</dt>
+				<dd>“Človek koná, hlupák reaguje.”</dd>
+
+				<dt>Jack Canfield</dt>
+				<dd>“Keď budeš robiť to, čo si vždy robil, tak dostaneš to, čo si vždy dostal</dd>
+
+			</dl>
+
+	</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-3" style="background-color: blue;"> ahaa už to chapem</div>
+			<div class="col-sm-3" style="background-color: blue;"> ahaa už to chapem</div>
+			<div class="col-sm-3" style="background-color: blue;"> ahaa už to chapem</div>
+			<div class="col-sm-3" style="background-color: blue;"> ahaa už to chapem</div>
+
+
+	</div>
+	</div>
+
+	<div class="container">
+	<div class="row">
+
+		<ul id="prid">
+			<li>a</li>
+			<li>s</li>
+			<li>dg</li>
+			<li>hg</li>
+			<li>hjyu</li>
+		</ul>
+
+
+			
+
+
+	</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<form>
+				<label>meno</label>
+				<br>
+				<input type="text" name="meno" id="meno">
+				<span class="error" style="display: none;">meno chýba</span>
+				<br>
+
+				<label>email</label>
+				<br>
+				<input type="email" name="mail" id="mail">
+				<span class="error" style="display: none;">email chýba</span>
+				<br>
+
+				<label>heslo</label>
+				<br>
+				<input type="password" name="heslo" id="heslo">
+				<span class="error" style="display: none;">heslo chýba</span>
+				<br>
+				
+				<input type="submit" name="" value="Potvrd" >
+			</form>
+
+			<div class="row" id="juhuhu">
+				<div class="col-sm-1" style="background-color: gray; height: 30px; border-radius: 8px;"></div>
+				<div class="col-sm-1" style="background-color: gray; height: 30px; border-radius: 8px;"></div>
+				<div class="col-sm-1" style="background-color: gray; height: 30px; border-radius: 8px;"></div>
+
+			</div>
+
+			<div class="row" style="height: 500px;">
+				<div class="col-sm-1 col-sm-offset-3"></div>
+				<div class="col-sm-1 acc" style="height: 20px; background-color: lightblue;"></div>
+				<div class="col-sm-1 acc" style="height: 40px; background-color: lightgreen;"></div>
+				<div class="col-sm-1 acc" style="height: 60px; background-color: pink;"></div>
+				<div class="col-sm-1 acc" style="height: 40px; background-color: red;"></div>
+				<div class="col-sm-1 acc" style="height: 20px; background-color: orange;"></div>
+
+
+
+	
+
+			</div>
+
+
+
+
+	</div>
+	</div> -->
+
+
+	<script type="text/javascript">
+
+		$(function() {
+
+			$('h1').funkyNalada().css('color', 'red');
+
+		});
+
+</script>
+
+</body>
+</html>
